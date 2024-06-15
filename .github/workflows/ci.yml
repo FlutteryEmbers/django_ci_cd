@@ -80,7 +80,7 @@ jobs:
         export PATH="$HOME/.fly/bin:$PATH"  # Ensuring PATH is updated in the current shell
         echo "PATH: $PATH"  # Debugging output to verify PATH
         ls -l $HOME/.fly/bin  # Verify the binary is there and executable
-        flyctl auth token --access-token ${{ secrets.FLYIO }}
+        flyctl auth login --access-token ${{ secrets.FLYIO }}
 
       
 
