@@ -56,12 +56,13 @@ jobs:
     - name: Install Fly.io CLI
       run: |
         curl -L https://fly.io/install.sh | sh
-        echo $PATH
+        # echo $PATH
         # echo 'export PATH="$HOME/.fly/bin:$PATH"' >> $GITHUB_ENV
         # export FLYCTL_INSTALL="/home/runner/.fly" >> $GITHUB_ENV
         # export PATH="$FLYCTL_INSTALL/bin:$PATH" >> $GITHUB_ENV
         echo "FLYCTL_INSTALL=$HOME/.fly" >> $GITHUB_ENV
         echo "PATH=$FLYCTL_INSTALL/bin:$PATH" >> $GITHUB_ENV
+        
 
     - name: Check PATH
       run: |
@@ -75,6 +76,8 @@ jobs:
         ls -l $HOME/.fly/bin
 
     - name: Log in to Fly.io
+      echo "PATH: $PATH"  # Debugging output to verify PATH
+      ls -l $HOME/.fly/bin # Verify the binary is there and executable
       run: flyctl auth token --token ${{ secrets.FLY_API_TOKEN }}
 
     - name: Deploy to Fly.io
