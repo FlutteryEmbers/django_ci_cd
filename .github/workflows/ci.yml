@@ -63,6 +63,17 @@ jobs:
         echo "FLYCTL_INSTALL=$HOME/.fly" >> $GITHUB_ENV
         echo "PATH=$FLYCTL_INSTALL/bin:$PATH" >> $GITHUB_ENV
 
+    - name: Check PATH
+      run: |
+        echo $PATH
+        echo 'export PATH="$HOME/.fly/bin:$PATH"' >> $GITHUB_ENV
+        echo $PATH
+
+    - name: Debug installation
+      run: |
+        echo "PATH: $PATH"
+        ls -l $HOME/.fly/bin
+
     - name: Log in to Fly.io
       run: flyctl auth token --token ${{ secrets.FLY_API_TOKEN }}
 
