@@ -76,9 +76,10 @@ jobs:
         ls -l $HOME/.fly/bin
 
     - name: Log in to Fly.io
-      echo "PATH: $PATH"  # Debugging output to verify PATH
-      ls -l $HOME/.fly/bin
-      flyctl auth token --token ${{ secrets.FLY_API_TOKEN }}
+      run: |
+        echo "PATH: $PATH"  # Debugging output to verify PATH
+        ls -l $HOME/.fly/bin
+        flyctl auth token --token ${{ secrets.FLY_API_TOKEN }}
 
       
 
