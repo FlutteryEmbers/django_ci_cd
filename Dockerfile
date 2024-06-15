@@ -1,4 +1,4 @@
-FROM python:3.11
+ARG PYTHON_VERSION=3.11
 
 FROM python:${PYTHON_VERSION}
 
