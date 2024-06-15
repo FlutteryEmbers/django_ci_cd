@@ -1,4 +1,4 @@
-ARG PYTHON_VERSION=3.8-slim-bullseye
+FROM python:3.11
 
 FROM python:${PYTHON_VERSION}
 
@@ -7,6 +7,9 @@ ENV PYTHONUNBUFFERED 1
 
 # install psycopg2 dependencies.
 RUN apt-get update && apt-get install -y \
+    graphviz \
+    libgraphviz-dev \
+    pkg-config \
     libpq-dev \
     gcc \
     && rm -rf /var/lib/apt/lists/*
