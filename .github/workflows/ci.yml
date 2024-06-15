@@ -78,9 +78,11 @@ jobs:
     - name: Log in to Fly.io
       run: |
         export PATH="$HOME/.fly/bin:$PATH"  # Ensuring PATH is updated in the current shell
+        export FLY_ACCESS_TOKEN=${{ secrets.FLY_API_TOKEN }}
         echo "PATH: $PATH"  # Debugging output to verify PATH
         ls -l $HOME/.fly/bin  # Verify the binary is there and executable
-        flyctl auth login --access-token ${{ secrets.FLY_API_TOKEN }}
+        # flyctl auth login --access-token ${{ secrets.FLY_API_TOKEN }}
+        flyctl auth token
 
       
 
