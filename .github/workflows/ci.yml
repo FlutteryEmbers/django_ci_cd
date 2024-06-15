@@ -77,8 +77,10 @@ jobs:
 
     - name: Log in to Fly.io
       echo "PATH: $PATH"  # Debugging output to verify PATH
-      ls -l $HOME/.fly/bin # Verify the binary is there and executable
-      run: flyctl auth token --token ${{ secrets.FLY_API_TOKEN }}
+      ls -l $HOME/.fly/bin
+      flyctl auth token --token ${{ secrets.FLY_API_TOKEN }}
+
+      
 
     - name: Deploy to Fly.io
       run: |
